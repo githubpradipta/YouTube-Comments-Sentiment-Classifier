@@ -45,7 +45,7 @@ def predict(request):
     try:
         model, vectorizer = load_model_and_vectorizer()
         
-        url = request.data['vidURL']
+        url = request.data['url']
         comments = get_comments(url)
        
         X_new = vectorizer.transform(comments)

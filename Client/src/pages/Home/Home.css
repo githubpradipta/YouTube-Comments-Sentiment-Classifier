@@ -1,0 +1,15 @@
+.home .searchBar svg{
+    width: 25px;
+    height: 25px;
+    color: white;
+}
+.home .searchBar input{
+    padding: 0px 15px;
+}
+.home{
+    background: linear-gradient(to top, rgba(255, 0, 0, 0.2), rgb(11, 11, 11))
+}
+.send:hover > svg{
+    color: rgb(255, 47, 47);
+    transform: translateX(5px);
+}
