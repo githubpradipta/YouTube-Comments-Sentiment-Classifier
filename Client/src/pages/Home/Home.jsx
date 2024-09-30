@@ -4,10 +4,13 @@ import SendIcon from '../../../assets/icons/sendIcon'
 import SearchIcon from '../../../assets/icons/searchIcon'
 import './Home.css'
 import bgIMG from '../../../assets/image/yt.png'
+import { useNavigate } from 'react-router-dom'
 export default function Home() {
   const [search, setSearch] = useState(false)
   const [url, setURL] = useState({})
   const [prediction, setPrediction] = useState({})
+
+  const navigate = useNavigate();
 
   const openSearchBox = () => {
     setSearch(true);
@@ -24,9 +27,7 @@ export default function Home() {
     .then(res=>{
   
       setPrediction(res.data.prediction);
-      console.log(prediction);
-      
-      
+      navigate('/dashboard', {state:res.data.prediction});
     })
     .catch(err=>{
       console.log(err);
@@ -34,11 +35,8 @@ export default function Home() {
     })
   }
 
-  useEffect(()=>{
-
-  },[prediction])
   return (
-    <div className='home bg-neutral-900 min-h-screen relative overflow-hidden'>
+    <div className='home gradientBG bg-neutral-900 min-h-screen relative overflow-hidden'>
       <div className="content py-8 pt-20 px-6 z-10">
         <div className="heading">
           <h1 className="text-4xl text-gray-300 font-bold flex flex-col items-center gap-4">
